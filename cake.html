@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title> Mừng Ngày "xuất xưởng" Của Quinn!</title>
+  <link rel="shortcut icon" href="apple-touch-icon.png" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;700&family=Roboto:wght@400&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  />
+  <style>
+    /* ===== CSS Variables for Theme ===== */
+    :root {
+  --primary-color: #ff4b2b;
+  --secondary-color: #ff416c;
+  --accent-color: #ff8c00;
+  --bg-light: #ffc371;
+  --text-color: #f70073;
+}
+    /* ===== CSS Reset ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--secondary-color), var(--bg-light));
+      overflow: hidden;
+    }
+
+    /* ===== Main Container ===== */
+    .container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background: url('background.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    /* ===== Main Box ===== */
+    .boxcontainer {
+      position: relative;
+      width: 80%;
+      max-width: 900px;
+      height: 600px;
+      background: radial-gradient(circle at center, var(--primary-color), var(--secondary-color));
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      animation: fadeInBox 2s ease forwards;
+    }
+    @keyframes fadeInBox {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* ===== Flag Image ===== */
+    .image {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: slideDown 1.5s ease forwards;
+      opacity: 0;
+    }
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+    .image img {
+      width: 200px;
+    }
+
+    /* ===== Happy Birthday Text ===== */
+    .text-happybirthday {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounceText 2s ease-out forwards;
+      opacity: 0;
+    }
+    @keyframes bounceText {
+      0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-100px);
+      }
+      60% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(20px);
+      }
+      80% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+    .text-happybirthday img {
+      width: 300px;
+    }
+
+    /* ===== Cake Section ===== */
+    .cake {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: riseUp 2s ease-out forwards;
+      opacity: 0;
+    }
+    @keyframes riseUp {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+    .cake img {
+      width: 350px;
+      transition: transform 0.3s ease;
+    }
+    .cake img:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    /* ===== Balloons Animation ===== */
+    .box-balloon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .balloon {
+      position: absolute;
+      width: 80px;
+      animation: floatBalloon 6s ease-in-out infinite;
+      opacity: 0;
+    }
+    @keyframes floatBalloon {
+      0% {
+        opacity: 0;
+        transform: translateY(100px) scale(0.8);
+      }
+      20% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-50px) scale(1.1);
+      }
+      80% {
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(100px) scale(0.8);
+      }
+    }
+    /* Positioning balloons with staggered delays */
+    .balloon:nth-child(1) {
+      left: 10%;
+      animation-delay: 0s;
+    }
+    .balloon:nth-child(2) {
+      left: 30%;
+      animation-delay: 1s;
+    }
+    .balloon:nth-child(3) {
+      left: 50%;
+      animation-delay: 2s;
+    }
+    .balloon:nth-child(4) {
+      left: 70%;
+      animation-delay: 1.5s;
+    }
+    .balloon:nth-child(5) {
+      left: 85%;
+      animation-delay: 0.5s;
+    }
+
+    /* ===== Clouds ===== */
+    .box-cloud {
+      position: absolute;
+      top: 5%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+    .cloud {
+      position: relative;
+      width: 120px;
+      opacity: 0.9;
+      animation: driftCloud 20s linear infinite;
+    }
+    @keyframes driftCloud {
+      0% {
+        transform: translateX(-150px);
+      }
+      100% {
+        transform: translateX(100vw);
+      }
+    }
+    .cloud img {
+      width: 100%;
+    }
+
+    /* ===== Fireworks ===== */
+    .box-firework {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .firework {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      animation: burst 1s ease-out forwards;
+      opacity: 0;
+    }
+    @keyframes burst {
+      0% {
+        opacity: 1;
+        transform: scale(0.1);
+      }
+      70% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.5);
+      }
+    }
+    /* Random fireworks positions and delays */
+    .firework:nth-child(1) {
+      top: 20%;
+      left: 20%;
+      animation-delay: 4s;
+    }
+    .firework:nth-child(2) {
+      top: 10%;
+      left: 60%;
+      animation-delay: 4.5s;
+    }
+    .firework:nth-child(3) {
+      top: 50%;
+      left: 30%;
+      animation-delay: 5s;
+    }
+    .firework:nth-child(4) {
+      top: 40%;
+      left: 80%;
+      animation-delay: 5.5s;
+    }
+
+    /* ===== Paper Cannons ===== */
+    .paperCannons {
+      position: absolute;
+      bottom: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: cannonZoom 1.5s ease-out forwards;
+      opacity: 0;
+    }
+    @keyframes cannonZoom {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.5);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+      }
+    }
+    .paperCannons img {
+      width: 400px;
+    }
+
+    /* ===== Gift Boxes ===== */
+    .box-giftbox {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      width: 300px;
+      justify-content: center;
+      opacity: 0;
+      animation: appearGift 2s ease-out forwards;
+      animation-delay: 2s;
+    }
+    @keyframes appearGift {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .box-giftbox img {
+      width: 50px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .box-giftbox img:hover {
+      transform: rotate(10deg) scale(1.2);
+    }
+
+    /* ===== Envelope / Mail Icon ===== */
+    .mail {
+      position: absolute;
+      bottom: 5%;
+      right: 5%;
+      width: 80px;
+      height: 80px;
+      background: var(--secondary-color);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      animation: popUp 1s ease-out forwards;
+      opacity: 0;
+      animation-delay: 2s;
+    }
+    @keyframes popUp {
+      from {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    .mail .fa-envelope {
+      font-size: 36px;
+      color: var(--accent-color);
+      transition: transform 0.3s ease;
+    }
+    .mail:hover .fa-envelope {
+      transform: rotate(15deg);
+    }
+
+    /* ===== Cute Animations ===== */
+    .boxcute {
+      position: absolute;
+      top: 10%;
+      right: 10%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      opacity: 0;
+      animation: cuteAppear 2s ease-out forwards;
+      animation-delay: 2s;
+    }
+    @keyframes cuteAppear {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .cute {
+      width: 80px;
+      transition: transform 0.3s ease;
+    }
+    .cute:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    /* ===== Modal Mail Box ===== */
+    .boxMail {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.8);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      z-index: 9999;
+    }
+    .boxMail.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+    .boxMail-container {
+      position: relative;
+      width: 750px;
+      height: 500px;
+      display: flex;
+      perspective: 2000px;
+    }
+    .card {
+      flex: 1;
+      border: 1px solid #ccc;
+      background: var(--secondary-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+      transition: transform 1s ease;
+    }
+    .card1 {
+      background: linear-gradient(135deg, var(--accent-color), #ff7a90);
+      color: white;
+      transform-origin: left;
+    }
+    .card1 .userImg {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 20px;
+      border: 3px solid white;
+    }
+    .card1 .userImg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card1 h3 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 40px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    .card2 {
+      background: linear-gradient(135deg, #e0e0e0, #ffffff);
+      color: var(--text-color);
+      transform-origin: right;
+    }
+    .card2 .card2-content {
+      padding: 20px;
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+    }
+    .card2 h3 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+    .card2 h2 {
+      font-size: 18px;
+      line-height: 1.4;
+    }
+    .boxMail .fa-xmark {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+    }
+    .song { display: none; }
+
+    /* ===== Sparkle & Heart Mouse Effects ===== */
+    .sparkle,
+    span.mouse-heart {
+      position: absolute;
+      pointer-events: none;
+      will-change: transform, opacity;
+      animation: fadeOut 1s linear forwards;
+    }
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+    span.mouse-heart::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url('heart.png') no-repeat center center/contain;
+    }
+    /* Music Button */
+    .music-control {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+    .music-control button {
+      padding: 10px 20px;
+      background-color: #ff4081;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* ===== Copy Text ===== */
+    #copy {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1rem;
+      color: #fff6f9;
+    }
+    #copy a {
+      text-decoration: none;
+      color: #191919d7;
+    }
+  </style>
+</head>
+<body>
+  <audio class="song" loop>
+    <source src="./music/hbd2.mp3">
+    Your browser isn't invited for super fun audio time.
+  </audio>
+  <div class="music-control">
+    <button id="toggleMusic">muốn có tí "music" thì bấm nghe nhé🎵</button>
+  </div>
+  <div class="container">
+    <div class="boxcontainer">
+      <!-- Flag Image -->
+      <div class="image">
+        <img src="flag.png" alt="Flag" />
+      </div>
+      <!-- Happy Birthday Text -->
+      <div class="text-happybirthday">
+        <img src="texthappy.png" alt="Happy Birthday" />
+      </div>
+      <!-- Cake Section -->
+      <div class="cake">
+        <img src="cake.png" alt="Cake" />
+      </div>
+      <!-- Balloons -->
+      <div class="box-balloon">
+        <img class="balloon" src="balloon.png" alt="Balloon" />
+        <img class="balloon" src="balloon.png" alt="Balloon" />
+        <img class="balloon" src="balloon.png" alt="Balloon" />
+        <img class="balloon" src="balloon.png" alt="Balloon" />
+        <img class="balloon" src="balloon.png" alt="Balloon" />
+      </div>
+      <!-- Clouds -->
+      <div class="box-cloud">
+        <div class="cloud">
+          <img src="cloud.png" alt="Cloud" />
+        </div>
+        <div class="cloud">
+          <img src="cloud.png" alt="Cloud" />
+        </div>
+      </div>
+      <!-- Fireworks -->
+      <div class="box-firework">
+        <div class="firework">
+          <img src="firework.png" alt="Firework" />
+        </div>
+        <div class="firework">
+          <img src="firework.png" alt="Firework" />
+        </div>
+        <div class="firework">
+          <img src="firework.png" alt="Firework" />
+        </div>
+        <div class="firework">
+          <img src="firework.png" alt="Firework" />
+        </div>
+      </div>
+      <!-- Paper Cannons -->
+      <div class="paperCannons">
+        <img src="paperCannons1.png" alt="Paper Cannons" />
+      </div>
+      <!-- Envelope / Mail Icon -->
+      <div class="mail">
+        <i class="fa-regular fa-envelope"></i>
+      </div>
+    </div>
+  </div>
+  <!-- Mail Box Modal -->
+  <div class="boxMail" id="boxMail">
+    <div class="boxMail-container">
+      <div class="card card1">
+        <div class="userImg">
+          <img src="tranhoangquyen.png" alt="User" />
+        </div>
+        <h3>Mừng sinh nhật Quinn</h3>
+      </div>
+      <div class="card card2">
+        <div class="card2-content">
+          <h3>Gửi Đến Quinn</h3>
+          <h2>
+            Chúc mừng sinh nhật quinn, đây là 1 món quà nhỏ mà Tuấn Anh muốn gửi đến Quinn.<br>
+            Mong Quinn tuổi 20 thật xinh đẹp, học tập thật tốt, cười nhiều và vui vẻ hơn mỗi ngày nhé! <br>
+            Happy Birthday Quyên🎂.
+          </h2>
+        </div>
+      </div>
+    </div>
+    <i class="fa-solid fa-xmark" id="closeModal"></i>
+  </div>
+  <!-- Copy / OG Creator -->
+  <div id="copy">
+    <p>🎂 Đợi 1 Chút Rồi Nhìn Vào Góc Dưới Bên Phải Nhé! 🎂</p>
+  </div>
+  <script>
+    // ===== Sparkle and Heart Effect on Mouse Move =====
+    document.addEventListener("mousemove", function (e) {
+      // Sparkle effect
+      const sparkle = document.createElement("div");
+      sparkle.classList.add("sparkle");
+      sparkle.style.left = e.clientX + "px";
+      sparkle.style.top = e.clientY + "px";
+      sparkle.style.width = "10px";
+      sparkle.style.height = "10px";
+      sparkle.style.background = "rgba(255, 255, 255, 0.8)";
+      sparkle.style.borderRadius = "50%";
+      document.body.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 1000);
+
+      // Heart effect
+      const heart = document.createElement("span");
+      heart.classList.add("mouse-heart");
+      heart.style.left = e.clientX + "px";
+      heart.style.top = e.clientY + "px";
+      heart.style.width = "20px";
+      heart.style.height = "20px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1000);
+    });
+    // Music control
+    const audio=document.querySelector('.song');
+    const btn=document.getElementById('toggleMusic');
+    let isPlaying=false;
+    btn.addEventListener('click',()=>{
+      if(!isPlaying){audio.play(); btn.textContent='🔇';} 
+      else {audio.pause(); btn.textContent='muốn có tí "music" thì bấm nghe nhé🎵';}
+      isPlaying=!isPlaying;
+    });
+
+    // ===== Mail Icon Click to Open Modal =====
+    const mailIcon = document.querySelector(".mail");
+    const boxMail = document.getElementById("boxMail");
+    mailIcon.addEventListener("click", () => {
+      boxMail.classList.add("active");
+    });
+
+    // ===== Close Modal =====
+    const closeModal = document.getElementById("closeModal");
+    closeModal.addEventListener("click", () => {
+      boxMail.classList.remove("active");
+    });
+  </script>
+</body>
+</html>

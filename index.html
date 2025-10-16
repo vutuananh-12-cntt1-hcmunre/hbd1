@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="apple-touch-icon.png" type="image/x-icon" />
+  <title>Đăng nhập vào đi nhé !!!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@100;300;500;700&family=Chewy&display=swap" rel="stylesheet">
+  <style>
+    
+    :root {
+      --galaxy-purple: #6c5ce7;
+      --strawberry-red: #ff6b6b;
+      --sunshine-yellow: #ffd93d;
+      --cream-frosting: #fff5e6;
+      --chocolate-drip: #4b2c20;
+      --sprinkle-blue: #48dbfb;
+      --neon-pink: #ff00ff;
+      --deep-space: #2d3436;
+      --cosmic-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at center, 
+        var(--galaxy-purple) 0%, 
+        var(--deep-space) 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ======================== */
+    /* Celestial Cake Creation */
+    /* ======================== */
+    .cake-universe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 600px;
+      perspective: 2000px;
+      filter: drop-shadow(0 0 50px rgba(255,215,0,0.5));
+      z-index: 1;
+    }
+
+    .cake-tower {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      animation: cosmicFloat 6s ease-in-out infinite;
+    }
+
+    .cake-tier {
+      position: absolute;
+      width: 80%;
+      height: 25%;
+      background: linear-gradient(
+        15deg,
+        var(--chocolate-drip) 20%,
+        #6b4226 80%
+      );
+      border-radius: 20px 20px 50px 50px;
+      box-shadow: 
+        inset 0 -15px 30px rgba(0,0,0,0.3),
+        inset 0 15px 30px rgba(255,255,255,0.1);
+      transform-origin: bottom;
+    }
+
+    .tier-1 { bottom: 0; z-index: 3; width: 100%; left: 0; }
+    .tier-2 { bottom: 25%; z-index: 2; width: 90%; left: 5%; }
+    .tier-3 { bottom: 50%; z-index: 1; width: 80%; left: 10%; }
+
+    .magic-frosting {
+      position: absolute;
+      width: 110%;
+      height: 30px;
+      background: linear-gradient(
+        45deg,
+        var(--cream-frosting) 30%,
+        #ffe8d1 70%
+      );
+      border-radius: 50px;
+      left: -5%;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      z-index: 4;
+    }
+
+    .frosting-top { top: -15px; }
+    .frosting-mid { top: 25%; }
+    .frosting-bottom { top: 50%; }
+
+    .enchanted-drip {
+      position: absolute;
+      width: 40px;
+      height: 80px;
+      background: var(--strawberry-red);
+      border-radius: 0 0 30px 30px;
+      animation: magicDrip 4s infinite cubic-bezier(0.4, 0, 0.6, 1);
+      filter: drop-shadow(0 10px 20px rgba(255,107,107,0.5));
+    }
+
+    .drip-1 { left: 15%; top: 28%; }
+    .drip-2 { left: 35%; top: 32%; }
+    .drip-3 { right: 25%; top: 30%; }
+    .drip-4 { right: 10%; top: 27%; }
+
+    .sparkle-candle {
+      position: absolute;
+      width: 25px;
+      height: 120px;
+      background: linear-gradient(
+        to right,
+        #ff9ff3 0%,
+        #f368e0 50%,
+        #ff6b6b 100%
+      );
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 10px 10px 0 0;
+      box-shadow: 0 0 30px rgba(255,155,243,0.5);
+      z-index: 5;
+    }
+
+    .eternal-flame {
+      position: absolute;
+      width: 20px;
+      height: 40px;
+      background: linear-gradient(#ffd93d, #ff6b6b 70%);
+      border-radius: 50% 50% 35% 35%;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: cosmicFlame 0.5s infinite alternate;
+      filter: blur(5px);
+    }
+
+    .galaxy-cherry {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle at 30% 30%, 
+        var(--neon-pink) 20%,
+        var(--strawberry-red) 80%);
+      border-radius: 50%;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 50px rgba(255,0,255,0.5);
+      animation: nebulaSpin 8s linear infinite;
+    }
+
+    .cherry-stem {
+      position: absolute;
+      width: 8px;
+      height: 40px;
+      background: #2ecc71;
+      top: -45px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      border-radius: 5px;
+      animation: stemSway 2s infinite alternate;
+    }
+
+    /* ======================== */
+    /* Interstellar Login Form */
+    /* ======================== */
+    .stargate-portal {
+      position: relative;
+      width: 500px;
+      padding: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(30px) saturate(200%);
+      border-radius: 30px;
+      box-shadow: var(--cosmic-shadow);
+      z-index: 10;
+      border: 3px solid rgba(255,255,255,0.3);
+      transform-style: preserve-3d;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      overflow: hidden;
+    }
+
+    .stargate-portal::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 20%,
+        rgba(255,255,255,0.1) 50%,
+        transparent 80%
+      );
+      animation: portalGlow 6s infinite linear;
+    }
+
+    .portal-header {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .portal-title {
+      font-family: 'Chewy', cursive;
+      font-size: 3.5rem;
+      background: linear-gradient(45deg, 
+        var(--sunshine-yellow) 20%,
+        var(--neon-pink) 50%,
+        var(--sprinkle-blue) 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 30px rgba(255,255,255,0.5);
+      transform: rotate(-2deg);
+      margin-bottom: 20px;
+    }
+
+    .stardust-input {
+      position: relative;
+      margin: 35px 0;
+    }
+
+    .cosmic-input {
+      width: 100%;
+      padding: 20px 30px;
+      border: 2px solid rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      color: #fff;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .cosmic-input:focus {
+      outline: none;
+      border-color: var(--sprinkle-blue);
+      background: rgba(255,255,255,0.1);
+      box-shadow: 0 0 40px rgba(72,219,251,0.3);
+    }
+
+    .quantum-button {
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(135deg, 
+        var(--neon-pink) 0%,
+        var(--galaxy-purple) 100%);
+      border: none;
+      border-radius: 15px;
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 2;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .quantum-button::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 20%,
+        rgba(255,255,255,0.3) 50%,
+        transparent 80%
+      );
+      animation: buttonEnergy 3s infinite linear;
+    }
+
+    .quantum-button:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 0 50px rgba(108,92,231,0.5);
+    }
+
+    /* ======================== */
+    /* Animated Cosmic Effects */
+    /* ======================== */
+    .space-particles {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star-particle {
+      width: 3px;
+      height: 3px;
+      background: #fff;
+      border-radius: 50%;
+      animation: starTwinkle 3s infinite;
+    }
+
+    .nebula-cloud {
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, 
+        rgba(255,107,107,0.3) 0%,
+        transparent 70%);
+      animation: nebulaPulse 8s infinite;
+    }
+
+    .comet-trail {
+      position: absolute;
+      width: 150px;
+      height: 3px;
+      background: linear-gradient(90deg, 
+        transparent 0%,
+        var(--sprinkle-blue) 50%,
+        transparent 100%);
+      animation: cometFly 4s infinite linear;
+    }
+
+    /* ======================== */
+    /* Cosmic Keyframe Animations */
+    /* ======================== */
+    @keyframes cosmicFloat {
+      0%, 100% { transform: translateY(0) rotateX(0deg); }
+      50% { transform: translateY(-30px) rotateX(10deg); }
+    }
+
+    @keyframes magicDrip {
+      0%, 100% { transform: translateY(0) scaleY(1); }
+      50% { transform: translateY(30px) scaleY(1.2); }
+    }
+
+    @keyframes cosmicFlame {
+      0% { 
+        transform: translateX(-50%) scale(1);
+        opacity: 0.8;
+      }
+      100% { 
+        transform: translateX(-50%) scale(1.2) translateX(10px);
+        opacity: 1;
+      }
+    }
+
+    @keyframes nebulaSpin {
+      0% { transform: translateX(-50%) rotate(0deg); filter: hue-rotate(0deg); }
+      100% { transform: translateX(-50%) rotate(720deg); filter: hue-rotate(360deg); }
+    }
+
+    @keyframes portalGlow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes buttonEnergy {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes starTwinkle {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes cometFly {
+      0% { transform: translateX(-100vw) translateY(-50vh); }
+      100% { transform: translateX(100vw) translateY(100vh); }
+    }
+    .gravity-well {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border: 2px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: gravityPulse 8s infinite linear;
+      mix-blend-mode: overlay;
+    }
+
+    .blackhole-core {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle, 
+        var(--deep-space) 30%,
+        transparent 70%);
+      border-radius: 50%;
+      animation: singularitySpin 10s infinite linear;
+    }
+
+    @keyframes gravityPulse {
+      0% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.2); opacity: 0.6; }
+      100% { transform: scale(1); opacity: 0.3; }
+    }
+
+    @keyframes singularitySpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 768px) {
+      .cake-universe {
+        width: 95%;
+        height: 400px;
+      }
+
+      .stargate-portal {
+        width: 90%;
+        padding: 30px;
+      }
+
+      .portal-title {
+        font-size: 2.5rem;
+      }
+    }
+    .cosmic-glow {
+      filter: drop-shadow(0 0 20px rgba(255,255,255,0.5));
+    }
+
+    .anti-gravity {
+      animation: antiGravity 3s ease-in-out infinite;
+    }
+
+    @keyframes antiGravity {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="gravity-well"></div>
+  <div class="cake-universe">
+    <div class="cake-tower">
+      <div class="cake-tier tier-1"></div>
+      <div class="cake-tier tier-2"></div>
+      <div class="cake-tier tier-3"></div>
+      <div class="magic-frosting frosting-top"></div>
+      <div class="magic-frosting frosting-mid"></div>
+      <div class="magic-frosting frosting-bottom"></div>
+      <div class="enchanted-drip drip-1"></div>
+      <div class="enchanted-drip drip-2"></div>
+      <div class="enchanted-drip drip-3"></div>
+      <div class="enchanted-drip drip-4"></div>
+      <div class="sparkle-candle">
+        <div class="eternal-flame"></div>
+      </div>
+      <div class="galaxy-cherry"></div>
+      <div class="cherry-stem"></div>
+    </div>
+  </div>
+  <form class="stargate-portal">
+    <div class="portal-header">
+      <h1 class="portal-title">Nhập Theo Gợi Ý Để Nhận Một Bất Ngờ !</h1>
+    </div>
+    <div class="stardust-input">
+      <input type="text" class="cosmic-input" placeholder="quinn xinh">
+    </div>
+    <div class="stardust-input">
+      <input type="password" class="cosmic-input" placeholder="Ngày Tháng Năm Sinh Của quinn!">
+    </div>
+    <button type="submit" class="quantum-button">Bấm Vào Đây</button>
+  </form>
+
+  <script>
+    // Cosmic Interaction System
+    document.addEventListener('DOMContentLoaded', () => {
+      // Generate Starfield
+      function createStarfield() {
+        const container = document.body;
+        for(let i = 0; i < 200; i++) {
+          const star = document.createElement('div');
+          star.className = 'space-particles star-particle';
+          star.style.left = Math.random() * 100 + 'vw';
+          star.style.top = Math.random() * 100 + 'vh';
+          star.style.animationDelay = Math.random() * 3 + 's';
+          container.appendChild(star);
+        }
+        // Add nebula clouds
+        for(let i = 0; i < 5; i++) {
+          const nebula = document.createElement('div');
+          nebula.className = 'space-particles nebula-cloud';
+          nebula.style.left = Math.random() * 100 + 'vw';
+          nebula.style.top = Math.random() * 100 + 'vh';
+          nebula.style.width = Math.random() * 100 + 50 + 'px';
+          nebula.style.height = nebula.style.width;
+          container.appendChild(nebula);
+        }
+        // Add comet trails
+        for(let i = 0; i < 3; i++) {
+          const comet = document.createElement('div');
+          comet.className = 'space-particles comet-trail';
+          comet.style.left = Math.random() * 100 + 'vw';
+          comet.style.top = Math.random() * 100 + 'vh';
+          comet.style.animationDelay = Math.random() * 4 + 's';
+          container.appendChild(comet);
+        }
+      }
+      createStarfield();
+
+      // Gravity Well Animation
+      const gravityWells = document.createElement('div');
+      gravityWells.className = 'gravity-well';
+      document.body.appendChild(gravityWells);
+
+      // Cake Interaction
+      const cake = document.querySelector('.cake-tower');
+      const candleFlame = document.querySelector('.eternal-flame');
+      
+      cake.addEventListener('mouseenter', () => {
+        cake.style.animation = 'cosmicFloat 3s ease-in-out infinite';
+        candleFlame.style.transform = 'scale(1.5)';
+      });
+
+      cake.addEventListener('mouseleave', () => {
+        cake.style.animation = 'cosmicFloat 6s ease-in-out infinite';
+        candleFlame.style.transform = 'scale(1)';
+      });
+
+      // Form Interactions
+      const inputs = document.querySelectorAll('.cosmic-input');
+      inputs.forEach(input => {
+        input.addEventListener('focus', (e) => {
+          createInputParticles(e.target);
+          e.target.parentElement.style.transform = 'translateY(-10px)';
+        });
+        input.addEventListener('blur', (e) => {
+          e.target.parentElement.style.transform = 'translateY(0)';
+        });
+      });
+
+      function createInputParticles(input) {
+        const rect = input.getBoundingClientRect();
+        for(let i = 0; i < 20; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'space-particles star-particle';
+          particle.style.left = rect.left + Math.random() * rect.width + 'px';
+          particle.style.top = rect.top + Math.random() * rect.height + 'px';
+          particle.style.animation = 'starTwinkle 1s forwards';
+          document.body.appendChild(particle);
+          setTimeout(() => particle.remove(), 1000);
+        }
+      }
+
+      // Form Submission with Credential Check
+      const form = document.querySelector('.stargate-portal');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = form.querySelector('input[type="text"]').value;
+        const password = form.querySelector('input[type="password"]').value;
+
+        // Check if inputs are empty
+        if(!username || !password) {
+          form.style.animation = 'shake 0.5s';
+          setTimeout(() => form.style.animation = '', 500);
+          createInputParticles(form);
+          return;
+        }
+        // Check if the credentials are correct (username: "Shobhit", password: "Love")
+        if(username === "quinn xinh" && password === "22102005") {
+          // Successful login animation and redirect to main.html
+          form.style.transform = 'scale(1.2) rotate(10deg)';
+          form.style.opacity = '0';
+          setTimeout(() => {
+            window.location.href = "main.html";
+          }, 1000);
+        } else {
+          // Wrong credentials
+          alert("Invalid credentials!");
+          form.style.animation = 'shake 0.5s';
+          setTimeout(() => form.style.animation = '', 500);
+        }
+      });
+      document.addEventListener('mousemove', (e) => {
+        const x = (window.innerWidth / 2 - e.pageX) / 30;
+        const y = (window.innerHeight / 2 - e.pageY) / 30;
+        document.querySelector('.cake-universe').style.transform = 
+          `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+        document.querySelector('.stargate-portal').style.transform = 
+          `translate(${-x/2}px, ${-y/2}px)`;
+      });
+
+      // Add shake animation for form validation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          25% { transform: translateX(-20px); }
+          50% { transform: translateX(20px); }
+          75% { transform: translateX(-10px); }
+        }
+      `;
+      document.head.appendChild(style);
+    });
+  </script>
+</body>
+</html>

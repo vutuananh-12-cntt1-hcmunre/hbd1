@@ -1,0 +1,379 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎁 Quà Của Tuấn Anh 🎁</title>
+  <link rel="shortcut icon" href="apple-touch-icon.png" type="image/x-icon" />
+  <script src="https://kit.fontawesome.com/a14ae32021.js"></script>
+  <style>
+    /* Reset & Full-Viewport */
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+    }
+    /* Gradient Background & Heart Cursor */
+    body {
+      background: linear-gradient(45deg, #1a1a1a, #4a148c, #880e4f, #1a1a1a);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cpath fill='%23ff4081' d='M471.701 73.005c-54.5-46.4-136.6-38.9-186.7 13.5L256 119.3l-29.031-32.76c-50.105-52.4-132.208-59.9-186.7-13.5-62.1 52.9-66.7 149.8-9.9 207.1l193.5 199.4c12 12.4 28 19.6 44.4 19.6s32.4-7.2 44.4-19.6l193.5-199.4c56.8-57.3 52.2-154.2-9.9-207.1z'/%3E%3C/svg%3E") 26 26, auto;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Floating Stars */
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+    }
+    .star {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      animation: twinkle var(--duration) ease-in-out infinite;
+    }
+    @keyframes twinkle { 0%,100% {opacity:0;} 50%{opacity:1;} }
+
+    /* Main Container: Split Layout */
+    .container {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr; /* Love letter rộng hơn, heart nhỏ hơn */
+      width: 100vw;
+      height: 100vh;
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+
+    /* Left Panel: Love Letter */
+    .love-letter {
+      padding: 2rem;
+      color: #fff;
+      border-right: 2px solid #ff4081;
+      overflow-y: auto;
+    }
+    .typing-border {
+      border-left: 3px solid #ff4081;
+      padding-left: 1rem;
+      margin: 0.5rem 0;
+      white-space: pre-wrap;
+      font-size: 1rem;
+      line-height: 1.4;
+      position: relative;
+    }
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.2em;
+      background: #ff4081;
+      vertical-align: bottom;
+      animation: blink 0.75s infinite;
+    }
+
+    /* Right Panel: Heart + Message */
+    .heart-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: visible;
+    }
+    .magic-heart {
+      width: 280px;
+      height: 280px;
+      animation: heartbeat 1.2s infinite;
+      margin: 0 auto;
+    }
+    .heart { fill: #ff4081; filter: drop-shadow(0 0 20px #ff4081); }
+    .particle { position: absolute; pointer-events: none; animation: particle-float 3s ease-out infinite; }
+    @keyframes heartbeat {
+      0%,100% { transform: scale(1); }
+      15% { transform: scale(1.3); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.15); }
+    }
+    @keyframes particle-float { 100% {opacity:0; transform:translateY(-100px) rotate(360deg);} }
+
+    .love-message {
+      color: #ff4081;
+      font-size: 3rem;
+      text-align: center;
+      text-shadow: 0 0 10px #ff4081, 0 0 20px #ff4081;
+      animation: glow 2s infinite alternate;
+      margin-top: 1rem;
+    }
+    @keyframes glow { 0%{text-shadow:0 0 10px #ff4081,0 0 20px #ff4081;} 100%{text-shadow:0 0 20px #ff4081,0 0 40px #ff4081;} }
+
+    /* Floating Hearts */
+    .floating-heart {
+      position: absolute;
+      bottom: -50px;
+      font-size: 24px;
+      color: #ff4081;
+      animation: floatUp 5s linear forwards;
+    }
+    @keyframes floatUp {0%{transform:translateY(0);opacity:0;}10%{opacity:1;}100%{transform:translateY(-200px);opacity:0;}}
+
+    /* Time Counter */
+    .time-counter {
+      margin-top: 1rem;
+      color: #fff;
+      text-shadow: 0 0 10px #ff4081;
+      text-align: center;
+    }
+    .digit {
+      font-size: 1.8rem;
+      margin: 0 0.2rem;
+      display: inline-block;
+      min-width: 40px;
+    }
+    /* Credits */
+    .credit {
+  position: absolute;
+  bottom: 10px;
+  left: 1rem; /* căn về bên trái */
+  color: #ffffff;
+  font-size: 0.9rem;
+  text-align: center; /* căn chữ bên trái */
+  width: 50%;  
+}
+.credit a {
+  color: #ff4081;
+  text-decoration: none;
+}
+
+    /* Birthday Message */
+    .birthday-container { text-align:center; margin-top:20px; }
+    .birthday-message {
+      color: #ff4081;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px #ff4081, 0 0 20px #ff4081;
+      animation: glow 2s infinite alternate;
+    }
+    .next-button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      background-color: #ff4081;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff4081;
+      transition: transform 0.2s;
+    }
+    .next-button:hover { transform: scale(1.1); }
+
+    /* Music Button */
+    .music-control {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+    .music-control button {
+      padding: 10px 20px;
+      background-color: #ff4081;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .cake-image {
+    width: 100%; /* Đảm bảo hình ảnh lấp đầy .magic-heart */
+    height: auto; /* Giữ tỷ lệ khung hình của hình ảnh */
+    filter: drop-shadow(0 0 15px #ff4081) drop-shadow(0 0 5px #ff4081); /* Hiệu ứng phát sáng */
+}
+
+    /* Responsive Mobile */
+    @media (max-width:768px){
+      .container { display:flex; flex-direction:column; height:auto; overflow-y:scroll; scroll-snap-type:y mandatory; }
+      .love-letter, .heart-container { width:100%; min-height:100vh; scroll-snap-align:start; }
+      .love-letter { border-right:none; border-bottom:2px solid #ff4081; }
+      .magic-heart { width: 300px; height: 300px; margin: 20px auto; }
+      .love-message { font-size: 2.8rem; }
+      .typing-border { font-size: 1.1rem; padding-left: 1rem; }
+      .birthday-message { font-size: 2.8rem; }
+      .next-button { padding:12px 24px; font-size:1.2rem; display:block; margin:20px auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+  
+  <div class="container">
+    <div class="love-letter">
+      <div id="paragraphs-container"></div>
+    </div>
+    <div class="heart-container">
+    <div class="magic-heart">
+        <img src="cake.png" alt="Hình bánh kem" class="cake-image">
+    </div>
+      <div class="love-message">MỪNG NGÀY SINH NHẬT</div>
+      <div class="time-counter">
+        <div id="days" class="digit">000</div> Days
+        <div id="hours" class="digit">00</div> Hours
+        <div id="minutes" class="digit">00</div> Minutes
+        <div id="seconds" class="digit">00</div> Seconds
+      </div>
+    </div>
+  </div>
+
+  <div class="credit">
+    💕 Gửi tặng Quinn với tất cả yêu thương 💕
+  </div>
+
+  <!-- Music -->
+  <audio class="song" loop>
+    <source src="./music/hbd.mp3">
+    Your browser isn't invited for super fun audio time.
+  </audio>
+  <div class="music-control">
+    <button id="toggleMusic">muốn có tí "music" thì bấm nghe nhé🎵</button>
+  </div>
+
+  <script>
+    // Stars
+    function createStars() {
+      const container = document.getElementById('stars');
+      for(let i=0;i<200;i++){
+        const star=document.createElement('div');
+        star.className='star';
+        star.style.left=`${Math.random()*100}%`;
+        star.style.top=`${Math.random()*100}%`;
+        star.style.width=star.style.height=`${Math.random()*3}px`;
+        star.style.setProperty('--duration',`${Math.random()*3+1}s`);
+        container.appendChild(star);
+      }
+    }
+
+    // Particles
+    function createParticles(){
+      const heart=document.querySelector('.magic-heart');
+      heart.addEventListener('mousemove',(e)=>{
+        for(let i=0;i<5;i++){
+          const particle=document.createElement('div');
+          particle.className='particle';
+          particle.style.left=`${e.clientX}px`;
+          particle.style.top=`${e.clientY}px`;
+          particle.style.animation=`particle-float ${Math.random()*2+1}s ease-out`;
+          particle.innerHTML='❤️';
+          document.body.appendChild(particle);
+          setTimeout(()=>particle.remove(),3000);
+        }
+      });
+    }
+
+    // Floating hearts in letter
+    function createFloatingHearts(){
+      const loveLetter=document.querySelector('.love-letter');
+      setInterval(()=>{
+        const heart=document.createElement('div');
+        heart.className='floating-heart';
+        heart.style.left=Math.random()*100+'%';
+        heart.textContent='❤️';
+        loveLetter.appendChild(heart);
+        setTimeout(()=>heart.remove(),5000);
+      },500);
+    }
+
+    // Typing
+    const paragraphs=[
+      `Món quà này hơi độc lạ một chút hẹ hẹ 😁😁😁 `,
+      `Thường thường mọi năm Tuấn Anh luôn chuẩn bị quà sinh nhật cho Quyên tại Tuấn Anh khó quên lắm! Năm nay ngoại lệ tí, đi học xa quá mà huhuh😭😭😭 nên phải làm tạm cái này ngay tối nay để để chúc mừng sinh nhật Quyên.`,
+      `Hôm nay là sinh nhật tuổi 20 của quinn, Tuấn anh chúc quinn tuổi mới phải xinh đẹp hơn tuổi cũ, lúc nào cũng nở nụ cười trên môi do Tuấn Anh thấy quinn cười đẹp lắm (cứ cười hớ hớ hớ không quên nổi🤣🤣🤣) với lại tìm thấy được nhiều niềm vui. Quan trọng là khóc ít lại nhé (khóc nhiều nhìn xấu lắm đó) .`,
+      `Ngoài ra cũng mong muốn quinn học tập thật tốt, phải mất 2 năm rồi quinn mới đi học đại học nên so với các bạn đồng trang lứa thì có hơi thiệt thòi. Mặc dù khi mới học có nhiều điều vẫn còn chưa quen, còn nhiều cái mới cái lạ nhưng phải cố gắng học hỏi ở đại học có nhiều cái đáng học lắm không chỉ kiến thức thôi đâu.`,
+      `Khi nào hết kì học Tuấn Anh muốn xin cái hẹn đi ăn như năm ngoái, từ lần đó chắc cũng 1 năm rồi chưa gặp lại để nói chuyện như lúc đi học còn ngồi chung. Rủ là phải đi đó nhé, không đi cũng phải đi!`
+    ];
+    let pIndex=0;
+    function typeParagraph(){
+      if(pIndex<paragraphs.length){
+        const container=document.createElement('div');
+        container.className='typing-border';
+        const typedTextEl=document.createElement('span');
+        const cursorEl=document.createElement('span');
+        cursorEl.className='cursor';
+        container.appendChild(typedTextEl);
+        container.appendChild(cursorEl);
+        document.getElementById('paragraphs-container').appendChild(container);
+        typeLetter(paragraphs[pIndex],typedTextEl,cursorEl,0,()=>{
+          pIndex++;
+          setTimeout(typeParagraph,600);
+        });
+      }else{
+        displayBirthdayMessage();
+      }
+    }
+    function typeLetter(text,typedTextEl,cursorEl,i,callback){
+      if(i<text.length){
+        typedTextEl.innerHTML+=text[i];
+        i++;
+        setTimeout(()=>typeLetter(text,typedTextEl,cursorEl,i,callback),40);
+      }else{
+        cursorEl.style.display='none';
+        callback();
+      }
+    }
+
+    // Birthday message
+    function displayBirthdayMessage(){
+      const container=document.getElementById('paragraphs-container');
+      const birthdayDiv=document.createElement('div');
+      birthdayDiv.className='birthday-container';
+      const birthdayText=document.createElement('div');
+      birthdayText.className='birthday-message';
+      birthdayText.textContent='Bấm vào tiếp đi! Chưa hết đâu nha😁😁😁.';
+      const nextButton=document.createElement('button');
+      nextButton.className='next-button';
+      nextButton.textContent='Bấm vào đi!';
+      nextButton.addEventListener('click',()=>{window.location.href='cake.html';});
+      birthdayDiv.appendChild(birthdayText);
+      birthdayDiv.appendChild(nextButton);
+      container.appendChild(birthdayDiv);
+    }
+    // Time counter
+    const startDate = new Date('2005-10-22T00:00:00');
+    function updateTime(){
+      const now=new Date();
+      const diff=now-startDate;
+      const days=Math.floor(diff/(1000*60*60*24));
+      const hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+      const minutes=Math.floor((diff%(1000*60*60))/(1000*60));
+      const seconds=Math.floor((diff%(1000*60))/1000);
+      document.getElementById('days').textContent=String(days).padStart(3,'0');
+      document.getElementById('hours').textContent=String(hours).padStart(2,'0');
+      document.getElementById('minutes').textContent=String(minutes).padStart(2,'0');
+      document.getElementById('seconds').textContent=String(seconds).padStart(2,'0');
+    }
+    // Music control
+    const audio=document.querySelector('.song');
+    const btn=document.getElementById('toggleMusic');
+    let isPlaying=false;
+    btn.addEventListener('click',()=>{
+      if(!isPlaying){audio.play(); btn.textContent='🔇';} 
+      else {audio.pause(); btn.textContent='muốn có tí "music" thì bấm nghe nhé🎵';}
+      isPlaying=!isPlaying;
+    });
+    window.addEventListener('DOMContentLoaded',()=>{
+      createStars();
+      createParticles();
+      createFloatingHearts();
+      setTimeout(typeParagraph,1000);
+      setInterval(updateTime,1000);
+      updateTime();
+    });
+  </script>
+</body>
+</html>
